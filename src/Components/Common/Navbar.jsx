@@ -10,10 +10,13 @@ import {
   ShoppingCart,
   UserPlus,
 } from "lucide-react";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  const cartData = useSelector((state) => state.cartItems);
 
   useEffect(() => {
     const token = localStorage.getItem("idToken");
@@ -95,8 +98,8 @@ const Navbar = () => {
             </>
           )}
 
-          <Link to="/cart" className="flex m-2 ml-4">
-            <ShoppingCart />
+          <Link to="/cart" className="flex m-2 ml-4 relative">
+            <ShoppingCart /> <span className="absolute -top-2 left-4 bg-orange-500 rounded-full w-6 h-6 flex items-center justify-center">{cartData.length}</span>
           </Link>
         </div>
       </nav>

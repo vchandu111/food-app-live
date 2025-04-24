@@ -17,8 +17,8 @@ const Footer = () => {
           </div>
           <div>
             <h1 className="text-xl mb-2">Quick Links</h1>
-            {["Menu", "About Us", "Contact"].map((item) => (
-              <div className="mb-2">
+            {["Menu", "About Us", "Contact"].map((item,index) => (
+              <div key={index} className="mb-2">
                 <p>{item}</p>
               </div>
             ))}
